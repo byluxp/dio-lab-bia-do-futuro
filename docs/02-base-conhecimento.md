@@ -72,5 +72,10 @@ Dados do Cliente:
 Últimas transações:
 - 01/11: Supermercado - R$ 450
 - 03/11: Streaming - R$ 55
+
+Produtos disponíveis para aplicar: 
+- Nome: ETF Global Rebound
+- Risco: alto
+- Indicado para: Diversificação internacional em empresas de tecnologia
 ...
 ```
