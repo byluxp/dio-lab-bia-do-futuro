@@ -43,6 +43,8 @@ produtos_financeiros = pd.read_json("data/produtos_financeiros.json")
 ### Como os dados são usados no prompt?
 > Os dados vão no system prompt? São consultados dinamicamente?
 
+Dados são consultados dinamicamente pelo nosso agente. 
+
 ```text
 
 DADOS E PERFIL DO CLIENTE:
