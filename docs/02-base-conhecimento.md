@@ -18,7 +18,7 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 
 > Você modificou ou expandiu os dados mockados? Descreva aqui.
 
-[Sua descrição aqui]
+- Adicionei mais produtos e serviços financeiros para abranger mais perfis. 
 
 ---
 
@@ -27,12 +27,33 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 ### Como os dados são carregados?
 > Descreva como seu agente acessa a base de conhecimento.
 
-[ex: Os JSON/CSV são carregados no início da sessão e incluídos no contexto do prompt]
+``` python 
+#código para abrir os arquivos csv e json
+
+import pandas as pd
+
+historico = pd.read_csv("data/historico_atendimento.csv")
+transacoes = pd.read_csv("data/transacoes.csv")
+
+perfil = pd.read_json("data/perfil_investidor.json")
+produtos_financeiros = pd.read_json("data/produtos_financeiros.json")
+
+``` 
 
 ### Como os dados são usados no prompt?
 > Os dados vão no system prompt? São consultados dinamicamente?
 
-[Sua descrição aqui]
+```text
+
+DADOS E PERFIL DO CLIENTE:
+{perfil_investidor_json}
+
+HISTÓRICO DE TRANSAÇÕES E ATENDIMENTO:
+{historico_e_transacoes_texto}
+
+PRODUTOS FINANCEIROS DISPONÍVEIS:
+{produtos_financeiros_json}
+```
 
 ---
 
