@@ -38,5 +38,45 @@
     "rentabilidade": "Variável",
     "aporte_minimo": 100.00,
     "indicado_para": "Perfil arrojado com foco no longo prazo"
+  },
+  {
+    "nome": "CDB Tech Crescimento IPCA+",
+    "categoria": "renda_fixa",
+    "risco": "baixo",
+    "rentabilidade": "IPCA + 6.5%",
+    "aporte_minimo": 500.00,
+    "indicado_para": "Proteção contra a inflação no médio prazo"
+  },
+  {
+    "nome": "Fundo Algorítmico Quantum",
+    "categoria": "fundo",
+    "risco": "medio",
+    "rentabilidade": "CDI + 4.5%",
+    "aporte_minimo": 250.00,
+    "indicado_para": "Investidores que buscam estratégias quantitativas automatizadas"
+  },
+  {
+    "nome": "ETF Global Rebound",
+    "categoria": "renda_variavel",
+    "risco": "alto",
+    "rentabilidade": "Variável (Atrelado ao S&P 500)",
+    "aporte_minimo": 150.00,
+    "indicado_para": "Diversificação internacional em empresas de tecnologia"
+  },
+  {
+    "nome": "FII Logística Avançada (LOGX11)",
+    "categoria": "fundo_imobiliario",
+    "risco": "medio",
+    "rentabilidade": "0.85% ao mês em dividendos",
+    "aporte_minimo": 95.00,
+    "indicado_para": "Geração de renda mensal passiva isenta de IR"
+  },
+  {
+    "nome": "Fundo de Criptoativos Dynamic Velo",
+    "categoria": "cripto",
+    "risco": "alto",
+    "rentabilidade": "Variável de alta volatilidade",
+    "aporte_minimo": 50.00,
+    "indicado_para": "Perfil agressivo focado em teses de tecnologia descentralizada"
   }
 ]
