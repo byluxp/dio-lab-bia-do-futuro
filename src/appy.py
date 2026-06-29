@@ -1,8 +1,7 @@
 import pandas as pd
 import json
 
-LLM_MODEL = "gpt-4o-mini"
-LLM_URL = ""
+
 
 # ====== CARREGANDO OS DADOS ======
 
