@@ -43,7 +43,7 @@ TRANSAÇÕES RECENTES: {transacoes.to_string(index=False)}
 
 HISTORICO DE ATENDIMENTO: {historico.to_string(index=False)}
 
-PRODUTOS FINANCEIROS DISPONÍVEIS: {json.dumps(produtos, indent=2, ensure_ascii=False)}
+PRODUTOS FINANCEIROS DISPONÍVEIS: {json.dumps(produtos_financeiros, indent=2, ensure_ascii=False)}
 """
 
 # ====== SYSTEM PROMPT ======
