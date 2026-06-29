@@ -32,11 +32,11 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 
 import pandas as pd
 
-historico = pd.read_csv("data/historico_atendimento.csv")
-transacoes = pd.read_csv("data/transacoes.csv")
+historico = pd.read_csv("./data/historico_atendimento.csv")
+transacoes = pd.read_csv("./data/transacoes.csv")
 
-perfil = pd.read_json("data/perfil_investidor.json")
-produtos_financeiros = pd.read_json("data/produtos_financeiros.json")
+perfil = pd.read_json("./data/perfil_investidor.json")
+produtos_financeiros = pd.read_json("./data/produtos_financeiros.json")
 
 ``` 
 
