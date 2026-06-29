@@ -4,6 +4,7 @@ import pandas as pd
 from google import genai
 from google.genai import types
 from dotenv import load_dotenv
+import streamlit as st
 
 # 1. Carrega as variáveis de ambiente definidas no arquivo .env local
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -62,33 +63,48 @@ REGRAS:
 """
 
 # ====== FUNÇÃO PARA ENVIAR PERGUNTA À API ======
-def gerar_resposta_agente(mensagem_usuario):
+def perguntar(msg):
     try:
-        # Enviando a requisição para a API do Gemini de forma segura
+        # Monta a entrada contendo explicitamente o contexto local e a mensagem
+        conteudo_requisicao = f"""
+        CONTEXTO_CLIENTE:
+        {contexto}
+
+        PERGUNTA_USUARIO:
+        {msg}
+        """
+        
+        # Executa a chamada para o modelo
         resposta = client.models.generate_content(
             model=LLM_MODEL,
-            contents=mensagem_usuario,
+            contents=conteudo_requisicao,
             config=types.GenerateContentConfig(
                 system_instruction=SYSTEM_PROMPT,
                 temperature=0.7,
             ),
         )
+        # Retorna o texto puro da IA
         return resposta.text
     except Exception as e:
-        return f"Erro ao conectar com a API do Gemini: {e}\nCertifique-se de que a variável GEMINI_API_KEY está configurada corretamente no arquivo .env."
+        return f"Erro na requisição do agente: {e}"
 
-# ====== EXECUÇÃO DE TESTE LOCAL ======
+# ====== EXECUÇÃO DO TESTE NO TERMINAL ======
 if __name__ == "__main__":
-    print("-" * 50)
-    print("Iniciando teste do agente local com a API do Gemini...")
-    print("-" * 50)
+    pergunta_teste = "Qual é o meu perfil de investidor e qual produto na base combina comigo?"
+    print(f"Enviando pergunta: '{pergunta_teste}'\n")
     
-    exemplo_pergunta = "Quais opções de investimento combinam mais com o meu perfil atual?"
-    print(f"Usuário: {exemplo_pergunta}\n")
+    resultado = perguntar(pergunta_teste)
+    print("Resposta do Agente:")
+    print(resultado)
+
+# ====== INTERFACE ======
+st.title("Oi, eu sou a Ivy, sua assistente de investimentos! 🤖 💰")
+
+# ====== INTERFACE DE CHAT DO STREAMLIT ======
+if pergunta := st.chat_input("Me diga qual é sua dúvida sobre investimentos."):
+    with st.chat_message("user"):
+        st.markdown(pergunta)
     
-    print("Ivy processando resposta...")
-    resposta_ivy = gerar_resposta_agente(exemplo_pergunta)
-    
-    print("\nIvy:")
-    print(resposta_ivy)
-    print("-" * 50)
+    with st.chat_message("assistant"):
+        resposta_ivy = perguntar(pergunta)
+        st.markdown(resposta_ivy)
