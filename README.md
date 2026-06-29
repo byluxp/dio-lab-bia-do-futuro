@@ -68,6 +68,14 @@ Desenvolva um **protótipo funcional** do seu agente:
 
 📁 **Pasta:** [`src/`](./src/)
 
+### 🚀 Como rodar o projeto localmente
+
+1. Clone o repositório.
+2. Crie um ambiente virtual e instale as dependências:
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
 ---
 
 ### 5. Avaliação e Métricas
